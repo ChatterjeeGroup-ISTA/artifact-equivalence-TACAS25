@@ -1,0 +1,8 @@
+def main(){
+    p := uniform(0,0.5);
+    r := [1,1,0,1,0];
+    for i in [0..r.length){
+        observe(flip(p)==r[i]);
+    }
+    return p;
+}

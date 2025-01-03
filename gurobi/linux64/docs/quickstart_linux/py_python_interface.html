@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2021.2 (Released July 1, 2021) -->
+<HTML lang="en">
+<HEAD>
+<TITLE>Python Interface</TITLE>
+<META NAME="description" CONTENT="Python Interface">
+<META NAME="keywords" CONTENT="quickstart_linux">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2021.2">
+
+<LINK REL="STYLESHEET" HREF="quickstart_linux.css">
+
+<LINK REL="next" HREF="matlab_interface.html">
+<LINK REL="previous" HREF="cs_net_interface_cs.html">
+<LINK REL="next" HREF="py_python_installation_opt.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="py_python_installation_opt.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="quickstart_linux.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="cs_nuget_package.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A
+ HREF="py_python_installation_opt.html">Python Installation Options</A>
+<B> Up:</B> <A
+ HREF="quickstart_linux.html">Gurobi Optimizer Quick Start</A>
+<B> Previous:</B> <A
+ HREF="cs_nuget_package.html">NuGet package</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A ID="SECTION000110000000000000000"></A>
+<A ID="section:Python"></A>
+<BR>
+Python Interface
+</H1>
+
+<P>
+Gurobi comes with a Python extension module called &ldquo;gurobipy&rdquo; that
+offers convenient object-oriented modeling constructs and an API to
+all Gurobi features.  The Gurobi distribution also includes a Python
+interpreter and a basic set of Python modules (see <A HREF="interactive_shell.html#section:Shell">the
+  interactive shell</A>), which are
+sufficient to build and run simple
+optimization models.   You can also install <code>gurobipy</code> into an
+existing Python installation or virtual environment
+(<kbd><A ID="tex2html56"
+  HREF="https://docs.python.org/3/library/venv.html">https://docs.python.org/3/library/venv.html</A></kbd>).
+
+<P>
+In this section, we will first <A HREF="py_python_installation_opt.html#subsection:pythoninstallation">review installation
+  options</A>.
+We then point out some <A HREF="py_python_tools.html#subsection:pythontools">useful Python
+tools</A> and their installation.  Finally, we introduce
+you to the <A HREF="py_simple_python_example.html#subsection:simplepython">basic usage of gurobipy</A> by
+means of a few concrete examples.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html320"
+  HREF="py_python_installation_opt.html">Python Installation Options</A>
+<UL>
+<LI><A ID="tex2html321"
+  HREF="py_using_pip_to_install_gr.html">Using pip to install gurobipy</A>
+<LI><A ID="tex2html322"
+  HREF="py_manual_installation.html">Manual installation</A>
+<LI><A ID="tex2html323"
+  HREF="py_anaconda_and_grb_conda_.html">Anaconda and Gurobi conda package</A>
+</UL>
+<BR>
+<LI><A ID="tex2html324"
+  HREF="py_python_tools.html">Python Tools</A>
+<UL>
+<LI><A ID="tex2html325"
+  HREF="py_jupyter_notebook.html">Jupyter Notebook</A>
+<LI><A ID="tex2html326"
+  HREF="py_the_spyder_ide.html">The Spyder IDE</A>
+</UL>
+<BR>
+<LI><A ID="tex2html327"
+  HREF="py_grbpy_the_gurobi_python.html">gurobipy, the Gurobi Python Interface</A>
+<LI><A ID="tex2html328"
+  HREF="py_simple_python_example.html">Simple Python Example</A>
+<UL>
+<LI><A ID="tex2html329"
+  HREF="py_example_mip1_py.html">Example mip1.py</A>
+<LI><A ID="tex2html330"
+  HREF="py_example_details.html">Example details</A>
+<LI><A ID="tex2html331"
+  HREF="py_creating_the_model.html">Creating the model</A>
+<LI><A ID="tex2html332"
+  HREF="py_adding_variables_to_the.html">Adding variables to the model</A>
+<LI><A ID="tex2html333"
+  HREF="py_setting_the_objective.html">Setting the objective</A>
+<LI><A ID="tex2html334"
+  HREF="py_adding_constraints_to_t.html">Adding constraints to the model</A>
+<LI><A ID="tex2html335"
+  HREF="py_optimizing_the_model.html">Optimizing the model</A>
+<LI><A ID="tex2html336"
+  HREF="py_reporting_results_attri.html">Reporting results - attributes</A>
+<LI><A ID="tex2html337"
+  HREF="py_cleaning_up.html">Cleaning up</A>
+<LI><A ID="tex2html338"
+  HREF="py_error_handling.html">Error handling</A>
+<LI><A ID="tex2html339"
+  HREF="py_running_the_example.html">Running the example</A>
+</UL>
+<BR>
+<LI><A ID="tex2html340"
+  HREF="py_python_matrix_example.html">Python Matrix Example</A>
+<UL>
+<LI><A ID="tex2html341"
+  HREF="py_example_matrix1_py.html">Example matrix1.py</A>
+<LI><A ID="tex2html342"
+  HREF="py_example_details2.html">Example details</A>
+<LI><A ID="tex2html343"
+  HREF="py_creating_the_model2.html">Creating the model</A>
+<LI><A ID="tex2html344"
+  HREF="py_adding_variables_to_the2.html">Adding variables to the model</A>
+<LI><A ID="tex2html345"
+  HREF="py_setting_the_objective2.html">Setting the objective</A>
+<LI><A ID="tex2html346"
+  HREF="py_adding_constraints_to_t2.html">Adding constraints to the model</A>
+<LI><A ID="tex2html347"
+  HREF="py_optimizing_the_model2.html">Optimizing the model</A>
+<LI><A ID="tex2html348"
+  HREF="py_reporting_results_attri2.html">Reporting results - attributes</A>
+<LI><A ID="tex2html349"
+  HREF="py_error_handling2.html">Error handling</A>
+<LI><A ID="tex2html350"
+  HREF="py_running_the_example2.html">Running the example</A>
+</UL>
+<BR>
+<LI><A ID="tex2html351"
+  HREF="py_python_dictionary_examp.html">Python Dictionary Example</A>
+<UL>
+<LI><A ID="tex2html352"
+  HREF="py_motivation.html">Motivation</A>
+<LI><A ID="tex2html353"
+  HREF="py_lists_and_tuples.html">Lists and Tuples</A>
+<LI><A ID="tex2html354"
+  HREF="py_dictionaries.html">Dictionaries</A>
+<LI><A ID="tex2html355"
+  HREF="py_list_comprehension_and_.html">List comprehension and generator expressions</A>
+<LI><A ID="tex2html356"
+  HREF="py_the_tuplelist_class.html">The tuplelist class</A>
+<LI><A ID="tex2html357"
+  HREF="py_the_tupledict_class.html">The tupledict class</A>
+<LI><A ID="tex2html358"
+  HREF="py_netflow_py_example.html">netflow.py example</A>
+<LI><A ID="tex2html359"
+  HREF="py_netflow_py_example_deta.html">netflow.py example details</A>
+<LI><A ID="tex2html360"
+  HREF="py_building_a_multi_dimens.html">Building a multi-dimensional array of variables</A>
+<LI><A ID="tex2html361"
+  HREF="py_arc_capacity_constraint.html">Arc capacity constraints</A>
+<LI><A ID="tex2html362"
+  HREF="py_flow_conservation_const.html">Flow conservation constraints</A>
+<LI><A ID="tex2html363"
+  HREF="py_results.html">Results</A>
+</UL>
+<BR>
+<LI><A ID="tex2html364"
+  HREF="py_running_the_examples.html">Running the examples</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="py_python_installation_opt.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="quickstart_linux.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="cs_nuget_package.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A>   
+<BR>
+<B> Next:</B> <A
+ HREF="py_python_installation_opt.html">Python Installation Options</A>
+<B> Up:</B> <A
+ HREF="quickstart_linux.html">Gurobi Optimizer Quick Start</A>
+<B> Previous:</B> <A
+ HREF="cs_nuget_package.html">NuGet package</A></DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

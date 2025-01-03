@@ -1,0 +1,13 @@
+def main()
+{
+    i:=0;
+    for counter in [0..1000)
+    {
+        if flip(1-0.001*i)
+        {
+            i=i+1;
+        }
+    }
+    observe(i<=30);
+    return (i,counter);
+}

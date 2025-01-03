@@ -1,0 +1,76 @@
+START: 1;
+PRE: {x==0 && y==0 && z==0 && counter==1};
+INIT: {x==0 && y==0 && z==0 && counter==1};
+
+FROM: 1;
+assume(counter<=1000);
+TO: 20;
+
+FROM: 20;
+counter := counter+1;
+TO: 2;
+
+FROM: 1;
+assume(counter>=1001);
+TO: 100;
+
+FROM: 2;
+prob(8/10);
+TO: 3;
+
+FROM: 3;
+prob(7/10);
+TO: 5;
+
+FROM: 5;
+z:=uniform(-2,1);
+TO: 50;
+
+FROM: 50;
+x:=x+z;
+TO: 1;
+
+FROM: 3;
+prob(3/10);
+TO: 6;
+
+FROM: 6;
+z:=uniform(-2,1);
+TO: 60;
+
+FROM: 60;
+y:=y+z;
+TO: 1;
+
+FROM: 2;
+prob(2/10);
+TO: 4;
+
+FROM: 4;
+prob(7/10);
+TO: 7;
+
+FROM: 7;
+z:=uniform(-1,2);
+TO: 70;
+
+FROM: 70;
+y:=y+z;
+TO: 1;
+
+FROM: 4;
+prob(3/10);
+TO: 8;
+
+FROM: 8;
+z:=uniform(-1,2);
+TO: 80;
+
+FROM: 80;
+x:=x+z;
+TO: 1;
+
+
+FROM: 100;
+observe(x>=10);
+TO: 101;

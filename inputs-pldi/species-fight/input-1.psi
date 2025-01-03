@@ -1,0 +1,21 @@
+
+def main(){
+    a := 160;
+    b := 100;
+    cost := 0;
+    for counter in [0..1000){
+        cost = cost + a;
+        if flip(1/2)==1 
+        {
+            b=(9/10)*b;
+            a=(11/10)*a;
+        }
+        else 
+        {
+            b= (11/10)*b;
+            a= (9/10)*a;
+        }
+    }
+    observe(cost>=1000);
+    return (a,b,cost);
+}

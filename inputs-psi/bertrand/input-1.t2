@@ -1,0 +1,31 @@
+START: 0;
+
+PRE: {whichBox==0 && isRed==0};
+INIT: {whichBox==0 && isRed==0};
+
+FROM: 0;
+whichBox := unifInt(1,3);
+TO: 1;
+
+FROM: 1;
+assume(whichBox==1);
+isRed:=1;
+TO: 2;
+
+FROM: 1;
+assume(whichBox==2);
+isRed:=0;
+TO: 2;
+
+FROM: 1;
+assume(whichBox>=3);
+TO: 3;
+
+FROM: 3;
+isRed:=discrete(1/2,1/2,0,1);
+TO: 2;
+
+FROM: 2;
+observe(isRed==1);
+TO: 4;
+

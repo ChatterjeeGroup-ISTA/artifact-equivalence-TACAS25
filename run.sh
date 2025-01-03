@@ -1,0 +1,1 @@
+java -jar artifact.jar $1 $2 $3 C1 $4 $5 work/ reset $6

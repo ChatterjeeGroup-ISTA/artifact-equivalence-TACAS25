@@ -1,0 +1,24 @@
+START: 0;
+
+PRE: {evidence==0 && coin==0};
+INIT: {evidence==0 && coin==0};
+
+FROM: 0;
+evidence:=discrete(2/5,3/5,1,0);
+TO: 1;
+
+FROM: 1;
+assume(evidence==1);
+TO: 2;
+
+FROM: 2;
+coin := discrete(1/2,1/2,1,0);
+TO: 3;
+
+FROM: 3;
+observe(coin==1);
+TO: 10;
+
+FROM: 1;
+assume(evidence==0);
+TO: 10;

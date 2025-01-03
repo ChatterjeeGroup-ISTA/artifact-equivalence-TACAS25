@@ -1,0 +1,89 @@
+START: 0;
+
+PRE: {cloudy==0 && rain==0 && sprinkler==0 && temp1==0 && wetRoof==0 && wetGrass==0 && temp2==0 && temp3==0};
+INIT: {cloudy==0 && rain==0 && sprinkler==0 && temp1==0 && wetRoof==0 && wetGrass==0 && temp2==0 && temp3==0};
+
+FROM: 0;
+cloudy:=discrete(55/100,45/100,1,0);
+TO: 1;
+
+FROM: 1;
+assume(cloudy==1);
+TO: 2;
+
+FROM: 2;
+rain:=discrete(8/10,2/10,1,0);
+TO: 4;
+
+FROM: 4;
+sprinkler:=discrete(1/10,9/10,1,0);
+TO: 5;
+
+FROM: 1;
+assume(cloudy==0);
+TO: 3;
+
+FROM: 3;
+rain:=discrete(2/10,8/10,1,0);
+TO: 6;
+
+FROM: 6;
+sprinkler:=discrete(1/2,1/2,1,0);
+TO: 5;
+
+FROM: 5;
+temp1:=discrete(7/10,3/10,1,0);
+TO: 7;
+
+FROM: 7;
+assume(temp1==1 && rain==1);
+wetRoof:=1;
+TO: 8;
+
+FROM: 7;
+assume(temp1==0 || rain==0);
+wetRoof:=0;
+TO: 8;
+
+FROM: 8;
+temp2:=discrete(9/10,1/10,1,0);
+TO: 9;
+
+FROM: 9;
+temp3:=discrete(9/10,1/10,1,0);
+TO: 10;
+
+FROM: 10;
+assume(temp2==1 && rain==1);
+wetGrass:=1;
+TO: 11;
+
+FROM: 10;
+assume(temp3==1 && sprinkler==1);
+wetGrass:=1;
+TO: 11;
+
+FROM: 10;
+assume(temp2==0 && temp3==0);
+wetGrass:=0;
+TO: 11;
+
+FROM: 10;
+assume(temp2==0 && sprinkler==0);
+wetGrass:=0;
+TO: 11;
+
+FROM: 10;
+assume(rain==0 && temp3==0);
+wetGrass:=0;
+TO: 11;
+
+
+FROM: 10;
+assume(rain==0 && sprinkler==0);
+wetGrass:=0;
+TO: 11;
+
+FROM: 11;
+observe(wetGrass==1);
+TO: 12;

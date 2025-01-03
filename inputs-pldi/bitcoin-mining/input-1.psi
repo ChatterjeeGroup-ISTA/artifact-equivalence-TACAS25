@@ -1,0 +1,15 @@
+
+def main(){
+    cost:=0;
+    for counter in [0..1000){
+        cost = cost +1;
+        if flip(1/2000)==1
+        {
+            if flip(99/100)==1 {cost = cost - 100;}
+            else {}
+        }
+        else {}
+    }
+    observe(cost>=500);
+    return (cost);
+}

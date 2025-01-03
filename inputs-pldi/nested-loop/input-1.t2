@@ -1,0 +1,61 @@
+START: 0;
+PRE: {i==150 && x==0 && r_1==0 && r_3==0 && z==0 && cost==0 && y==0 && counter==1 && counter2==1};
+INIT: {i==150 && x==0 && r_1==0 && r_3==0 && z==0 && cost==0 && y==0 && counter==1 && counter2==1};
+
+FROM: 0;
+assume(counter<=1000);
+TO: 1;
+
+FROM: 1;
+x:=i;
+counter2:=1;
+TO: 2;
+
+FROM: 2;
+assume(counter2<=1000);
+TO: 3;
+
+FROM: 3;
+r_1 := discrete(1/4,3/4,1,-1);
+TO: 4;
+
+FROM: 4;
+x:= x+r_1;
+TO: 5;
+
+FROM: 5;
+y := discrete(2/3,1/3,1,-1);
+TO: 6;
+
+FROM: 6;
+counter2:=counter2+1;
+TO: 2;
+
+FROM: 2;
+assume(counter2>=1001);
+TO: 7;
+
+FROM: 7;
+r_3 := discrete(1/4,3/4,1,-1);
+TO: 8;
+
+FROM: 8;
+i:= i+r_3;
+TO: 9;
+
+FROM: 9;
+z:=discrete(2/3,1/3,1,-1);
+TO: 10;
+
+FROM: 10;
+cost := cost + z;
+counter:=counter+1;
+TO: 0;
+
+FROM: 0;
+assume(counter>=1001);
+TO: 11;
+
+FROM: 11;
+observe(cost>=100);
+TO: 12;

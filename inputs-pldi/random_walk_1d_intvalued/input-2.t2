@@ -1,0 +1,36 @@
+START: 0;
+PRE: {x==0 && counter==1 && cost==0};
+INIT: {x==0 && counter==1 && cost==0};
+
+FROM: 0;
+assume(counter<=1000);
+TO: 1;
+
+FROM: 0;
+assume(counter>=1001);
+TO: 10;
+
+FROM: 1;
+prob(7/10);
+TO: 2;
+
+FROM: 2;
+x:=x-1;
+TO: 5;
+
+FROM: 1;
+prob(3/10);
+TO: 3;
+
+FROM: 3;
+x:=x+1;
+TO: 5;
+
+FROM: 5;
+cost:=cost+x;
+counter:=counter+1;
+TO: 0;
+
+FROM: 10;
+observe(cost>=10);
+TO: 100;

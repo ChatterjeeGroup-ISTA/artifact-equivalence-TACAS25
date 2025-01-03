@@ -1,0 +1,28 @@
+START: 0;
+
+PRE: {aliceDunnit==0 && withGun==0};
+INIT: {aliceDunnit==0 && withGun==0};
+
+FROM: 0;
+aliceDunnit:=discrete(30/100,70/100, 1,0);
+TO: 1;
+
+FROM: 1;
+assume(aliceDunnit==1);
+TO: 2;
+
+FROM: 2;
+withGun:=discrete(3/100,97/100,1,0);
+TO: 4;
+
+FROM: 1;
+assume(aliceDunnit==0);
+TO: 3;
+
+FROM: 3;
+withGun:=discrete(8/10,2/10,1,0);
+TO: 4;
+
+FROM: 4;
+observe(withGun==1);
+TO: 5;

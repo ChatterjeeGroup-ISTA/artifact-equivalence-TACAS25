@@ -1,0 +1,17 @@
+
+def main(){
+    sent:=0; 
+    fail:=0;
+    for counter in [0..1000){
+        if flip(1999/2000)
+        {
+            sent=sent+1;
+        }
+        else 
+        {
+            fail = 1;
+        }
+    }
+    observe(sent>=500);
+    return (sent,fail);
+}

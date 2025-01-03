@@ -1,0 +1,46 @@
+def main()
+{
+    pos := uniform(0,3);
+    dis := 0;
+    r_1 := 0;
+    r_2 := 0;
+    r_3 := 0;
+    r_4 := 0;
+    r_5 := 0;
+    for counter in [0..1000)
+    {
+        if pos>=1.5
+        {
+            r_1 = uniform(-0.6,0.5);
+            pos = pos + r_1;
+        }
+        else 
+        {
+            if 1<=pos && pos<1.5
+            {
+                r_2 = uniform(-0.5,0.4);
+                pos = pos+r_2;
+            }
+            else 
+            {
+                if 0.5<=pos && pos<1
+                {
+                    r_3 = uniform(-0.5,0.4);
+                    pos = pos+r_3;
+                }
+                else 
+                {
+                    if pos < 0.5
+                    {
+                        r_4 = uniform(-0.6,0.5);
+                        pos = pos + r_4;
+                    }
+                }
+            }
+        }
+        r_5 = uniform(0,1);
+        dis = dis+r_5;
+    }
+    score(dis);
+    return (counter,dis,pos);
+}

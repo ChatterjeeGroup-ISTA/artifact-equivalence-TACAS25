@@ -1,0 +1,35 @@
+START: 0;
+PRE: {sent==0 && fail==0 && counter==1};
+INIT: {sent==0 && fail==0 && counter==1};
+
+FROM: 0;
+assume(counter<=1000);
+TO: 1;
+
+FROM: 0;
+assume(counter>=1001);
+TO: 4;
+
+FROM: 1;
+prob(1999/2000);
+TO: 2;
+
+FROM: 2;
+sent:=sent+1;
+TO: 5;
+
+FROM: 1;
+prob(1/2000);
+TO: 3;
+
+FROM: 3;
+fail:=1;
+TO: 5;
+
+FROM: 5;
+counter:=counter+1;
+TO: 0;
+
+FROM: 4;
+observe(sent>=500);
+TO: 100;

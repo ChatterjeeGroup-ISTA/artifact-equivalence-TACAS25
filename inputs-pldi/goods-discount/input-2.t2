@@ -1,0 +1,32 @@
+START: 0;
+PRE: {counter==1 && d==1 && r_1==1};
+INIT: {counter==1 && d==1 && r_1==1};
+
+FROM: 0;
+assume(counter<=1000);
+TO: 1;
+
+FROM: 1;
+counter:= counter+1;
+TO: 2;
+
+FROM: 2;
+r_1 := uniform(1/2,5/2);
+TO: 3;
+
+FROM: 3;
+d := d+r_1;
+TO: 4;
+
+FROM: 4;
+TO: 0;
+
+
+FROM: 0;
+assume(counter==1001);
+TO: 5;
+
+
+FROM: 5;
+observe(d>=1000);
+TO: 6;

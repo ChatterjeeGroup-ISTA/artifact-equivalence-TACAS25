@@ -1,0 +1,19 @@
+
+def main(){
+    x:=0;
+    cost:=0;
+    for counter in [0..1000){
+        if flip(7/10)==1
+        {
+            x=x-1;
+            cost = cost+x;
+        }
+        else 
+        {
+            x=x+1;
+            cost = cost+x;
+        }
+    }
+    observe(cost>=10);
+    return (x,cost);
+}

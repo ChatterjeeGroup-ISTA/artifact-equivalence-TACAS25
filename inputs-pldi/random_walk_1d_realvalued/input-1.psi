@@ -1,0 +1,21 @@
+
+def main(){
+    x:=0;
+    cost:=0;
+    r:=0;
+    for counter in [0..1000){
+        if flip(6/10)==1
+        {
+            r=uniform(0,1);
+            x=x+r;
+        }
+        else
+        {
+            r=uniform(0,1);
+            x=x-r;
+        }
+        cost = cost+x;
+    }
+    observe(cost>=10);
+    return (x,cost,r);
+}

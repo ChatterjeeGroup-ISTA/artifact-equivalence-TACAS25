@@ -1,0 +1,76 @@
+START: 0;
+
+PRE: {earthquake==0 && burglary==0 && alarm==0 && phoneWorking==0 && maryWakes==0 && called==0};
+INIT: {earthquake==0 && burglary==0 && alarm==0 && phoneWorking==0 && maryWakes==0 && called==0};
+
+FROM: 0;
+earthquake:=discrete(1/10000,9999/10000,1,0);
+TO: 1;
+
+FROM: 1;
+burglary:=discrete(1/1000,999/1000,1,0);
+TO: 2;
+
+FROM: 2;
+assume(earthquake==1 || burglary==1);
+alarm:=1;
+TO: 3;
+
+FROM: 2;
+assume(earthquake==0 && burglary==0);
+alarm:=0;
+TO: 3;
+
+FROM: 3;
+assume(earthquake==1);
+TO: 4;
+
+FROM: 4;
+phoneWorking:=discrete(7/10,3/10,1,0);
+TO: 6;
+
+FROM: 3;
+assume(earthquake==0);
+TO: 5;
+
+FROM: 5;
+phoneWorking:=discrete(99/100,1/100,1,0);
+TO: 6;
+
+FROM: 6;
+assume(alarm==1 && earthquake==1);
+TO: 7;
+
+FROM: 7;
+maryWakes:=discrete(8/10,2/10,1,0);
+TO: 8;
+
+FROM: 6;
+assume(alarm==1 && earthquake==0);
+TO: 9;
+
+FROM: 9;
+maryWakes:=discrete(6/10,4/10,1,0);
+TO: 8;
+
+FROM: 6;
+assume(alarm==0);
+TO: 10;
+
+FROM: 10;
+maryWakes:=discrete(2/10,8/10,1,0);
+TO: 8;
+
+FROM: 8;
+assume(maryWakes==1 && phoneWorking==1);
+called:=1;
+TO: 11;
+
+FROM: 8;
+assume(maryWakes==0 || phoneWorking==0);
+called:=0;
+TO: 11;
+
+FROM: 11;
+observe(called==1);
+TO: 12;

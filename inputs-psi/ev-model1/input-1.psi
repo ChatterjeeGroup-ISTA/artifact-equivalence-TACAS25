@@ -1,0 +1,10 @@
+def main(){
+    evidence := 0;
+    coin := 0;
+    evidence = flip(1/2);
+    if evidence {
+        coin = flip(1/2);
+        observe(coin);
+    }
+    return (evidence,coin);
+}

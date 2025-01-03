@@ -1,0 +1,100 @@
+START: 0;
+
+PRE: {i==0 && money==10 && r_1==0 && counter==0};
+INIT: {i==0 && money==10 && r_1==0 && counter==0};
+
+FROM: 0;
+assume(counter<=1000);
+TO: 1;
+
+FROM: 0;
+assume(counter>=1001);
+TO: 48;
+
+FROM: 1;
+r_1 := uniform(5,10);
+TO: 3;
+
+FROM: 3;
+money := money - r_1;
+TO: 10;
+
+FROM: 10;
+prob(94/100);
+TO: 12;
+
+FROM: 12;
+prob(1/3);
+TO: 14;
+
+FROM: 14;
+prob(1/2);
+TO: 16;
+
+FROM: 16;
+money := money + (3/2)*r_1;
+TO: 45;
+
+FROM: 14;
+prob(1/2);
+TO: 18;
+
+FROM: 18;
+money := money + (11/10)*r_1;
+TO: 45;
+
+FROM: 12;
+prob(2/3);
+TO: 23;
+
+FROM: 23;
+TO: 25;
+
+FROM: 25;
+prob(1/2);
+TO: 27;
+
+FROM: 27;
+prob(1/3);
+TO: 29;
+
+FROM: 29;
+money := money + (3/2)*r_1;
+TO: 45;
+
+FROM: 27;
+prob(2/3);
+TO: 33;
+
+FROM: 33;
+money := money + (11/10)*r_1;
+TO: 45;
+
+FROM: 25;
+prob(1/2);
+TO: 38;
+
+FROM: 38;
+prob(2/3);
+TO: 40;
+
+FROM: 40;
+money := money + (3/10)*r_1;
+TO: 45;
+
+FROM: 38;
+prob(1/3);
+TO: 45;
+
+FROM: 10;
+prob(6/100);
+TO: 45;
+
+FROM: 45;
+i:=i+1;
+counter:=counter+1;
+TO: 0;
+
+FROM: 48;
+observe(money>=200);
+TO: 49;

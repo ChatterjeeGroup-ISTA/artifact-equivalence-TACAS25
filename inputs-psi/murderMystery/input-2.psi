@@ -1,0 +1,6 @@
+def main(){
+    aliceDunnit := flip(0.35);
+    withGun := if aliceDunnit { flip(0.03) } else { flip(0.8) };
+    observe(withGun == 1);
+    return (aliceDunnit,withGun);
+}

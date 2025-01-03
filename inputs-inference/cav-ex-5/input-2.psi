@@ -1,0 +1,49 @@
+def main()
+{
+    i := 0;
+    money :=0;
+    r_1:=0;
+    for counter in [0..1000)
+    {
+        r_1 = uniform(5,10);
+        money = money - r_1;
+        if flip(0.94)
+        {
+            if flip(0.33)
+            {
+                if flip(0.5)
+                {
+                    money = money + 1.5*r_1;
+                }
+                else 
+                {
+                    money = money + 1.1*r_1;
+                }
+            }
+            else 
+            {
+                if flip(0.5) 
+                {
+                    if flip(0.33)
+                    {
+                        money = money + 1.5*r_1 
+                    }
+                    else
+                    {
+                        money = money + 1.1*r_1 
+                    }
+                }
+                else 
+                {
+                    if flip(0.67) 
+                    {
+                        money = money + 0.3*r_1 
+                    }
+                }
+            }
+        }
+        i=i+1;
+    }
+    observe(money>=300);
+    return (i,money);
+}

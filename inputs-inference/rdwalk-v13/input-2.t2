@@ -1,0 +1,45 @@
+START: 0;
+
+PRE: {x==0 && r_2==0 && r_1==0 && y==0 && counter==0};
+INIT: {x==0 && r_2==0 && r_1==0 && y==0 && counter==0};
+
+FROM: 0;
+r_1 := uniform(0,3);
+TO; 1;
+
+FROM: 1;
+x:= r_1;
+TO: 2;
+
+FROM: 2;
+assume(counter<=1000);
+TO: 3;
+
+FROM: 2;
+assume(counter>=1001);
+TO: 4;
+
+FROM: 3;
+prob(1/2);
+TO: 5;
+
+FROM: 5;
+r_2 := beta(3,3);
+TO: 7;
+
+FROM: 7;
+x := x-r_2;
+TO: 6;
+
+FROM: 3;
+prob(1/2);
+TO: 6;
+
+FROM: 6;
+y:=y+1;
+counter:= counter+1;
+TO: 2;
+
+FROM: 4;
+score(y,2000);
+TO: 10;

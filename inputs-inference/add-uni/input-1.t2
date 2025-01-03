@@ -1,0 +1,45 @@
+START: 0;
+
+PRE: {x==0 && y==0 && r_1==0 && r_2==0 && count==0};
+INIT: {x==0 && y==0 && r_1==0 && r_2==0 && count==0};
+
+FROM: 0;
+assume(count<=1000);
+TO: 1;
+
+FROM: 0;
+assume(count>=1001);
+TO: 2;
+
+FROM: 1;
+prob(1/2);
+TO: 3;
+
+FROM: 1;
+prob(1/2);
+TO: 4;
+
+FROM: 3;
+r_1 := uniform(0,1/2);
+TO: 5;
+
+FROM: 5;
+y:=y+1;
+x:=x+r_1;
+TO: 7;
+
+FROM: 4;
+r_2 := uniform(1/2,1);
+TO: 6;
+
+FROM: 6;
+x:=x+r_2;
+TO: 7;
+
+FROM: 7;
+count:=count+1;
+TO: 0;
+
+FROM: 2;
+observe(x<=500);
+TO: 8;

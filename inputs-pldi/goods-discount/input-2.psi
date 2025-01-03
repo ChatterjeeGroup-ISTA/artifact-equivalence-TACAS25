@@ -1,0 +1,11 @@
+
+def main(){
+    d:=1;
+    r_1:=1;
+    for counter in [0..1000){
+        r_1 = uniform(1/2,5/2);
+        d=d+r_1;
+    }
+    observe(d>=1000);
+    return (d,r_1);
+}

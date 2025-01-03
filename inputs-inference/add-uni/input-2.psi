@@ -1,0 +1,21 @@
+def main()
+{
+    x:=0;
+    y:=0;
+    r_1 :=0;
+    r_2 :=0;
+    for counter in [0..1000){
+        if flip(1/2) {
+            r_1 = uniform(0,0.5);
+            y = y+1; 
+            x = x+r_1;
+        }
+        else 
+        {
+            r_2 = uniform(0.5,1);
+            x=x+r_2;
+        }
+    }
+    observe(x<=700);
+    return (x,y);
+}

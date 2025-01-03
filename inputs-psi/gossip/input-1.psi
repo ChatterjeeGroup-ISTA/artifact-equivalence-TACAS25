@@ -1,0 +1,14 @@
+
+def main(){
+    N := 2; numSteps := 1;
+    infected := array(N,0);
+    infected[0] = 1;
+    infected[1] = flip(1/2);
+    newInfected := infected;
+    which:=0;
+    if true{
+        which = uniformInt(0,N-1);
+        newInfected[which] = 1;
+    }
+    return (N,numSteps,infected[0],infected[1],newInfected[0],newInfected[1]);
+}

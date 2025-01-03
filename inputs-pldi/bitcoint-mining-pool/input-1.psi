@@ -1,0 +1,28 @@
+
+def main(){
+    y:=100;
+    r:=0;
+    cost:=0;
+    for counter in [0..1000){
+        cost=cost+1;
+        
+        for i in [1..1000){
+            if flip(1/200==1)
+            {
+                if flip(99/100)==1
+                {
+                    cost = cost - 50;
+                }
+                else 
+                {}
+            }
+            else 
+            {}
+        }
+        r=categorical([5/10,1/10,4/10]);
+        r=r-1;
+        y= y+r;
+    }
+    observe(cost>=500);
+    return (y,r,cost);
+}
